@@ -1,0 +1,164 @@
+{% load staticfiles %}
+
+<style>
+.body-outer{
+zoom: 1.2;
+transform: 0 0;
+background-color: #eaeaea;
+}
+
+.body-inner{
+margin: 0 auto;
+height: 100%;
+background-color: #eaeaea;
+color: black;
+max-width: 90%;
+line-height: 2em;
+color: black;
+font-size: 12px;
+text-align: center;
+}
+
+.body-inner img{
+margin: 0 auto;
+max-width: 75%;
+margin-top: 25px;
+margin-bottom: 30px;
+}
+
+
+.top-header{
+margin-bottom: 25px;
+font-size: 1.3em;
+font-weight: bold;
+color: gray;
+}
+
+.product-title{
+font-size: 2.5em;
+color: black;
+margin-bottom: 25px;
+font-weight: bold;
+}
+
+.product-tagline{
+font-size: 1.5em;
+color: red;
+font-weight: bold;
+margin-bottom: 25px;
+}
+
+.product-buynow{
+font-size: 1.3em;
+color: red;
+font-weight: bold;
+margin-bottom: 25px;
+}
+
+
+.price-title{
+font-size: 1.3em;
+color: black;
+margin-bottom: 25px;
+}
+
+.price-before{
+font-size: 1.3em;
+color: orange;
+font-weight: bold;
+text-decoration: line-through;
+margin-bottom: 25px;
+}
+
+.price-now{
+font-size: 1.5em;
+color: red;
+font-weight: bold;
+margin-bottom: 25px;
+}
+
+.checkout-link{
+font-size: 1em;
+color: blue;
+margin-bottom: 25px;
+}
+
+.checkout-link a:link, a:visited{
+font-size: 1em;
+color: blue;
+margin-bottom: 25px;
+}
+
+.cp-whatsapp{
+margin-bottom: 25px;
+}
+
+.cp-whatsapp img{
+margin-bottom: 25px;
+width="40%"
+}
+
+.share-whatsapp{
+margin-bottom: 25px;
+}
+
+.other-product option, select{
+background-color: white;
+min-width: 200px;
+}
+</style>
+
+<div class="body-inner">
+	<div class="top-header">
+	    ENWISER.ID
+	</div>
+	<div class="product-title">
+		{{ product.product_name }}
+	</div>
+	<div class="product-tagline">
+		{{ product.product_tagline }}
+	</div>
+<div>
+	<img src="{{ product.product_img1.url }}"</img>
+</div>
+	<div class="product-content">
+		{{ product.product_content }}
+		<img src="{{ product.product_img2.url }}"></img>
+	</div>
+	<div class="product-buynow">
+		Dapatkan {{ product.product_pricetitle }} Kamu Sekarang!
+	</div>
+	<div class="price-title">
+{{ product.product_pricebefore }}
+	</div>
+	<div class="price-before">
+{{ product.product_pricebefore }}
+	</div>
+		<div class="checkout-link">
+			<a href="{{ product.product_checkoutlink }}" target="_blank" >
+			</a>
+				<div class="price-now">
+	{{ product.product_pricenow }}
+				Klik Untuk Beli
+				<img src="{{ product.product_img3.url }}"></img>
+			</a>
+		</div>
+
+	
+	<div class="cp-whatsapp">
+		Untuk informasi lebih lanjut:
+		<a href="https://api.whatsapp.com/send?phone=62817803883&text=Hi,%20Saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20{{ product.product_name }} ({{ product.product_sku }}), Pertanyaan:" target="_blank" >
+		    </br>
+		    <img src=""></a>
+		</div>
+	<div class="testimoni-page">
+	</div>
+	<div class="share-whatsapp">
+		<a href="whatsapp://send?text=Cek {{ product.product_name }} di ES3883: http://www.es3883.com/p/{{ product.pk }}" target="_blank" >Share to WhatsApp</a>
+	</div>
+
+	<div class="other-product">
+| Product SKU: {{ product.product_sku }} | Product Name: {{ product.product_name }} |
+	</div>
+</div>
+</div>

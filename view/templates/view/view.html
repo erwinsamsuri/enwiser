@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/sb_admin/sb-admin-2.css' %}" rel="stylesheet">
+<link href="{% static 'css/font-awesome/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+<div class="row show-grid">
+    <div class="col-lg-8 col-lg-offset-2">
+
+<!-- Web title-->
+<div class="text-center">
+<strong>ENWISER.ID</strong>
+</div>
+
+<div class="text-center text-info">
+	<h1>{{ product.product_name }}</h1>
+</div>
+<div class="text-center text-danger">
+	<h3>{{ product.product_tagline }}</h3>
+</div>
+<div class="text-center">
+<img src="{{ product.product_img1.url }}" class="rounded mx-auto d-block" width='80%'></img>
+</div>
+<div class="text-center">
+    {{ product.product_content|linebreaks }}
+</div>
+<div class="text-center">
+<img src="{{ product.product_img2.url }}" width=80%></img><br>
+<br>
+</div>
+<div class="text-center alert alert-danger">
+    <a href="{{ product.product_checkoutlink }}" target="_blank"  class="alert-link"><h4><strong>Klik dan Dapatkan<br></strong></h4> {{ product.product_pricetitle }} Kamu Sekarang!</a><br>
+    <div class="text-muted"><i class="fa fa-arrow-up fa-fw"></i>DISKON dari Rp. {{ product.product_pricebefore }}<i class="fa fa-arrow-up fa-fw"></i><br></div>
+    <i class="fa fa-arrow-up fa-fw"></i><STRONG>HARGA SPECIAL Rp. {{ product.product_pricenow }} </STRONG><i class="fa fa-arrow-up fa-fw"></i><br><br>
+    <a href="{{ product.product_checkoutlink }}" target="_blank"  class="alert-link"><h4><strong>Beli Sekarang</strong></h4></a>
+</div>
+<div class="text-center">
+	<img src="{{ product.product_img3.url }}" width=80%></img>
+</div>
+<div class="text-center">
+	<a href="https://api.whatsapp.com/send?phone=62817803883&text=Hi,%20Saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20{{ product.product_name }} ({{ product.product_sku }}), Pertanyaan:" target="_blank" ><br>More Info</a>	
+</div>
+
+<div class="text-center">
+TESTIMONI
+</div>
+
+	<div class="text-center">
+		<a href="whatsapp://send?text=Cek {{ product.product_name }} di ES3883: http://www.es3883.com/p/{{ product.pk }}" target="_blank" >Share to WhatsApp</a>
+	</div>
+	<div class="text-center">
+| Product SKU: {{ product.product_sku }} | Product Name: {{ product.product_name }} |
+	</div>
+
+<!-- end -->
+    </div>
+</div>
+
+<script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>

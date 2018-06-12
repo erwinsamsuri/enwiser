@@ -1,0 +1,35 @@
+{% extends 'pages/base.html' %}
+
+{% block pageheader %}
+Product List
+{% endblock %}
+
+{% block content %}
+<table class="table table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product SKU</th>
+      <th>Product Name</th>
+      <th>Price Now</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in product_list %}
+      <tr>
+        <td><a href="/p/{{ product.pk }}">{{ product.pk }}</a></td>
+        <td>{{ product.product_sku }}</td>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.product_pricenow }}</td>
+        <td><a href="{% url 'product:product_change' product.pk %}">Edit</a></td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4">No person in the database. the first person</a>.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'product:product_create' %}">Add New Product</a>
+{% endblock %}
